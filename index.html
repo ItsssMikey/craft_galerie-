@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Logo = Home button -->
+      <a class="logo" href="/" aria-label="Home">
+        <img src="./media /logo.svg" alt="Craft Gallery" />
+      </a>
+
+      <!-- Hamburger (mobile) -->
+    <button
+  class="nav-toggle dots"
+  type="button"
+  aria-label="Open menu"
+  aria-controls="primary-nav"
+  aria-expanded="false"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+      <!-- Nav -->
+      <nav class="nav" id="primary-nav">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#program">Program</a>
+        <a href="#visuals">Visuals</a>
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <a href="#team">contact</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h1></h1>
+      <p></p>
+    </section>
+
+    <section class="gallery" id="visuals">
+      <!-- Cards injected by JS -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2025 Gallery</span>
+      <span>Architecture · Program · Visuals</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
