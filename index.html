@@ -1,64 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <!-- Logo = Home button -->
-      <a class="logo" href="/" aria-label="Home">
-        <img src="./media /logo.svg" alt="Craft Gallery" />
-      </a>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="/" aria-label="Home">
+          <img src="./media/logo.svg" alt="Craft Gallery" />
+        </a>
 
-      <!-- Hamburger (mobile) -->
+        <nav class="nav collapse is-collapsed" id="primary-nav">
+           <a href="#index" aria-current="page">Home</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#program">Program</a>
+          <a href="#visuals">Visuals</a>
+          <a href="#about">About</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="intro">
+        <h1></h1>
+        <p></p>
+      </section>
+
+      <section class="gallery" id="visuals"></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-block">
+          <h4>Contact</h4>
+          <p>
+            E-mail:
+            <a href="mailto:art.landscape.planning@gmail.com">
+              art.landscape.planning@gmail.com
+            </a><br />
+            Tel: +47 91 19 04 05<br />
+            Visiting address:<br />
+            Baksidevegen 13<br />
+            2640 Vinstra, Norway
+          </p>
+        </div>
+
+        <div class="footer-block">
+          <h4>Staff</h4>
+          <p>
+            Owner and Intendant<br />
+            Patrick Huse<br /><br />
+            Administrative partner<br />
+            Solveig M. Huse<br /><br />
+            Gallery cooperative & technical assistance<br />
+            Nina Standerholen
+          </p>
+        </div>
+
+        <div class="footer-block">
+          <h4>Partners</h4>
+          <p>
+            PHS — Patrick Huse Studio<br />
+            SAR — Skabu Artist Residence<br />
+            Delta Press Norway<br />
+            Nord-Fron Municipality<br />
+            Innlandet County Municipality
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <button
-  class="nav-toggle dots"
-  type="button"
-  aria-label="Open menu"
-  aria-controls="primary-nav"
-  aria-expanded="false"
->
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+      class="fab"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="primary-nav"
+      aria-expanded="false"
+    >
+      <span class="fab-plus" aria-hidden="true"></span>
+    </button>
 
-      <!-- Nav -->
-      <nav class="nav" id="primary-nav">
-        <a href="#philosophy">Philosophy</a>
-        <a href="#program">Program</a>
-        <a href="#visuals">Visuals</a>
-        <a href="#about">About</a>
-        <a href="#team">Team</a>
-        <a href="#team">contact</a>
-        
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="intro">
-      <h1></h1>
-      <p></p>
-    </section>
-
-    <section class="gallery" id="visuals">
-      <!-- Cards injected by JS -->
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© 2025 Gallery</span>
-      <span>Architecture · Program · Visuals</span>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
+ 

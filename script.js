@@ -14,7 +14,6 @@ const galleryEl = document.querySelector(".gallery");
 
 function renderGallery(items) {
   galleryEl.innerHTML = "";
-
   items.forEach((item) => {
     const card = document.createElement("article");
     card.className = "card";
@@ -32,35 +31,42 @@ function renderGallery(items) {
 renderGallery(GALLERY_ITEMS);
 
 /* =====================
-   MOBILE NAV TOGGLE
+   MOBILE NAV (FAB DROPDOWN)
 ===================== */
-const toggleBtn = document.querySelector(".nav-toggle");
+const fab = document.querySelector(".fab");
 const nav = document.querySelector(".nav");
 
+let isOpen = false;
+
 function setMenu(open) {
+  isOpen = open;
+
+  fab.classList.toggle("is-open", open);
+  fab.setAttribute("aria-expanded", String(open));
+  fab.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+
+  nav.classList.remove(open ? "collapse" : "transition");
+  nav.classList.add(open ? "transition" : "collapse");
+
+  nav.classList.toggle("is-expanded", open);
+  nav.classList.toggle("is-collapsed", !open);
   nav.classList.toggle("is-open", open);
-  toggleBtn.setAttribute("aria-expanded", String(open));
-  toggleBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
 }
 
-toggleBtn.addEventListener("click", () => {
-  const isOpen = nav.classList.contains("is-open");
+fab.addEventListener("click", () => {
   setMenu(!isOpen);
 });
 
-// Close menu when clicking a link (mobile)
 nav.addEventListener("click", (e) => {
   const link = e.target.closest("a");
   if (!link) return;
-  setMenu(false);
+  if (window.innerWidth <= 680) setMenu(false);
 });
 
-// Close on Escape (accessibility)
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") setMenu(false);
 });
 
-// If resizing to desktop, ensure nav is reset
 window.addEventListener("resize", () => {
   if (window.innerWidth > 680) setMenu(false);
 });

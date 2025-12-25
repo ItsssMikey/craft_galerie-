@@ -42,6 +42,13 @@ a { color: inherit; text-decoration: none; }
   z-index: 50;
 }
 
+/* Desktop-only subtle shadow across whole screen */
+@media (min-width: 681px) {
+  .site-header {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  }
+}
+
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -87,26 +94,31 @@ a { color: inherit; text-decoration: none; }
   color: var(--text);
 }
 
-/* Mobile menu toggle (three dots) */
-.nav-toggle {
-  display: none;              /* hidden on desktop */
-  justify-self: end;
-  background: transparent;
-  border: none;               /* no box */
-  padding: 8px;
-  cursor: pointer;
-  margin-right: 10px;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-}
+/* Desktop underline hover + current page underline */
+@media (min-width: 681px) {
+  .nav a {
+    position: relative;
+    display: inline-block;
+  }
 
-.nav-toggle span {
-  width: 4px;
-  height: 4px;
-  background: var(--muted);
-  border-radius: 50%;
-  display: block;
+  .nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 1px;
+    background: var(--text);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.18s ease;
+    opacity: 0.9;
+  }
+
+  .nav a:hover::after,
+  .nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
 }
 
 /* =====================
@@ -115,18 +127,6 @@ a { color: inherit; text-decoration: none; }
 .intro {
   max-width: 720px;
   margin-bottom: 80px;
-}
-
-.intro h1 {
-  margin: 0 0 16px;
-  font-size: 2.2rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.intro p {
-  color: var(--muted);
-  line-height: 1.6;
 }
 
 /* =====================
@@ -146,7 +146,11 @@ a { color: inherit; text-decoration: none; }
 .card-image {
   aspect-ratio: 4 / 3;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.01));
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.06),
+    rgba(0,0,0,0.01)
+  );
 }
 
 .card-content { padding: 14px; }
@@ -167,79 +171,196 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* =====================
-   FOOTER
+   FOOTER (BLACK)
 ===================== */
 .site-footer {
-  border-top: 1px solid var(--line);
-  padding: 32px var(--gutter);
-  margin-top: 80px;
+  background: #000;
+  color: #fff;
+  padding: 64px var(--gutter);
+  margin-top: 100px;
 }
 
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.footer-block h4 {
+  margin: 0 0 14px;
   font-size: 0.75rem;
-  color: var(--muted);
-  flex-wrap: wrap;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer-block p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+}
+
+.footer-block a {
+  color: #fff;
+  text-decoration: underline;
 }
 
 /* =====================
-   RESPONSIVE
+   RESPONSIVE GRID
 ===================== */
 @media (max-width: 900px) {
   .card { grid-column: span 6; }
 }
 
-/* Mobile menu breakpoint */
+@media (max-width: 520px) {
+  .card { grid-column: span 12; }
+}
+
+/* =====================
+   MOBILE DROPDOWN ANIMATION
+===================== */
+.transition {
+  animation: expandDropdown 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform-origin: bottom right;
+}
+
+@keyframes expandDropdown {
+  from { opacity: 0; transform: scale(0); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.collapse {
+  animation: collapseDropdown 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform-origin: bottom right;
+}
+
+@keyframes collapseDropdown {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0); }
+}
+
+.is-collapsed { pointer-events: none; }
+.is-expanded  { pointer-events: auto; }
+
+/* =====================
+   FLOATING + BUTTON
+===================== */
+.fab {
+  display: none;
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 54px;
+  height: 54px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+/* plus icon */
+.fab-plus::before,
+.fab-plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 1px;
+  background: var(--muted);
+  transform: translate(-50%, -50%);
+}
+
+.fab-plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.fab.is-open .fab-plus {
+  transform: rotate(45deg);
+}
+
+/* =====================
+   MOBILE LAYOUT
+===================== */
 @media (max-width: 680px) {
   .header-inner {
-    grid-template-columns: 1fr auto;
-   
-  }
-
-  .logo {
-    justify-self: start;
-    padding-left: 0;
+    grid-template-columns: 1fr;
+    padding: 12px var(--gutter);
+    gap: 6px;
   }
 
   .logo img {
-    height:65px;
+    height: 65px;
   }
 
-  .nav-toggle {
-    display: flex;           /* show dots */
+  .container {
+    padding-top: 18px;
+    padding-bottom: 60px;
   }
 
-  /* Hide nav by default on mobile */
+  .intro {
+    margin-bottom: 18px;
+  }
+
   .nav {
-    display: none;
-    flex-direction: column;
-    gap: 0;
+    position: fixed;
+    right: 18px;
+    bottom: 90px;
 
-    grid-column: 1 / -1;
-    padding: 10px 0 14px;
-    border-top: none;
-  }
-
-  /* When open */
-  .nav.is-open {
     display: flex;
-    
+    flex-direction: column;
+    gap: 20px;
+
+    background: #000;
+    border-radius: 16px;
+    padding: 26px 24px;
+
+    width: 260px;
+    max-height: 70vh;
+    overflow: auto;
   }
 
   .nav a {
-    padding: 14px 0;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    color: #fff;
+    font-size: 21px;
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 0;
   }
 
-  .nav a:first-child {
-    border-top: none;
+  .nav a:hover {
+    color: rgb(175, 153, 153);
+    transform: scale(1.05);
+  }
+
+  .fab { display: block; }
+  body { padding-bottom: 96px; }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
-@media (max-width: 520px) {
-  .card { grid-column: span 12; }
+/* =====================
+   DESKTOP OVERRIDES (CRITICAL)
+===================== */
+@media (min-width: 681px) {
+  .fab { display: none !important; }
+
+  .nav {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 0 6px !important;
+    flex-direction: row !important;
+    width: auto !important;
+
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    pointer-events: auto !important;
+  }
 }
