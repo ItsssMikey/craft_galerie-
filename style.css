@@ -32,7 +32,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .container {
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 1 auto;
   padding: 60px var(--gutter);
 }
 
