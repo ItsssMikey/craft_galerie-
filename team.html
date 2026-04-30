@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team — CRAFT</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html" aria-label="Home">
+          <img src="./media/logo.svg" alt="CRAFT — Galleri for samtidskunst" />
+        </a>
+
+        <nav class="nav collapse is-collapsed" id="primary-nav">
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="program.html" data-i18n="nav.program">Program</a>
+          <a href="visuals.html" data-i18n="nav.visuals">Visuals</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="team.html" aria-current="page" data-i18n="nav.team">Team</a>
+          <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <button type="button" class="lang-btn" data-lang="no" aria-pressed="false">NO</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="page-title" data-i18n="page.team.title">Team</h1>
+
+      <div class="page-content">
+        <h2 data-i18n="page.team.intendant.role">Owner and Intendant</h2>
+        <p><strong>Patrick Huse</strong></p>
+        <p data-i18n="page.team.intendant.bio">
+          Patrick Huse is a Norwegian visual artist with more than 55 years of professional practice.
+        </p>
+
+        <h2 data-i18n="page.team.admin.role">Administrative Partner</h2>
+        <p><strong>Solveig M. Huse</strong></p>
+        <p data-i18n="page.team.admin.bio">
+          Solveig M. Huse leads the gallery's administration.
+        </p>
+
+        <h2 data-i18n="page.team.coop.role">Gallery Cooperative &amp; Technical Assistance</h2>
+        <p><strong>Nina Standerholen</strong></p>
+        <p data-i18n="page.team.coop.bio">
+          Nina Standerholen contributes to the gallery's daily operations.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-inner">
+        <div class="footer-block">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <p>
+            <span data-i18n="footer.email">E-mail</span>:
+            <a href="mailto:art.landscape.planning@gmail.com">art.landscape.planning@gmail.com</a><br />
+            <span data-i18n="footer.tel">Tel</span>: +47 911 90 405<br />
+            <span data-i18n="footer.address">Visiting address</span>:<br />
+            Baksidevegen 13<br />
+            2640 Vinstra, Norway
+          </p>
+        </div>
+        <div class="footer-block">
+          <h4 data-i18n="footer.staff">Staff</h4>
+          <p>
+            <span data-i18n="footer.role.intendant">Owner and Intendant</span><br />
+            Patrick Huse<br /><br />
+            <span data-i18n="footer.role.admin">Administrative partner</span><br />
+            Solveig M. Huse<br /><br />
+            <span data-i18n="footer.role.coop">Gallery cooperative & technical assistance</span><br />
+            Nina Standerholen
+          </p>
+        </div>
+        <div class="footer-block">
+          <h4 data-i18n="footer.partners">Partners</h4>
+          <p>
+            PHS — Patrick Huse Studio<br />
+            SAR — Skåbu Artist Residence<br />
+            Delta Press Norway<br />
+            <span data-i18n="footer.partner.municipality">Nord-Fron Municipality</span><br />
+            <span data-i18n="footer.partner.county">Innlandet County Municipality</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button class="fab" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+      <span class="fab-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

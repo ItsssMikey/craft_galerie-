@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 110" width="320" height="110">
+  <!-- Undertittel definerer bredden (ca. 290px med disse innstillingene) -->
+  <text x="0" y="100"
+        font-family="system-ui, sans-serif"
+        font-size="13"
+        letter-spacing="2.5"
+        fill="#555">GALLERI FOR SAMTIDSKUNST</text>
+
+  <!-- CRAFT strekkes til samme bredde som undertittelen via textLength -->
+  <text x="0" y="65"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="56"
+        font-weight="400"
+        fill="#000"
+        textLength="290"
+        lengthAdjust="spacing">CRAFT</text>
+</svg>

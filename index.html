@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRAFT — Galleri for samtidskunst</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html" aria-label="Home">
+          <img src="./media/logo.svg" alt="CRAFT — Galleri for samtidskunst" />
+        </a>
+
+        <nav class="nav collapse is-collapsed" id="primary-nav">
+          <a href="index.html" aria-current="page" data-i18n="nav.home">Home</a>
+          <a href="program.html" data-i18n="nav.program">Program</a>
+          <a href="visuals.html" data-i18n="nav.visuals">Visuals</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <button type="button" class="lang-btn" data-lang="no" aria-pressed="false">NO</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-image">
+          <img src="./media/gallery-interior.jpg" alt="CRAFT gallery interior" />
+        </div>
+        <div class="hero-content container">
+          <h1 class="hero-title" data-i18n="hero.title">
+            CRAFT<span class="hero-semicolon">;</span> Gallery for Contemporary Art
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            Vinstra, Norway · Established 2026
+          </p>
+        </div>
+      </section>
+
+      <!-- CURRENT / UPCOMING EXHIBITION -->
+      <section class="container current-exhibition">
+        <div class="section-label" data-i18n="current.label">Upcoming Exhibition</div>
+        <div class="current-grid">
+          <div class="current-image">
+            <img src="./media/valtyrson-kjellerbilde.jpg" alt="Erling Valtyrson — Kjellerbilde, mezzotint" />
+            <div class="current-caption" data-i18n="current.caption">
+              Erling Valtyrson · <em>Kjellerbilde</em> · Mezzotint · 21,5 × 24,5 cm
+            </div>
+          </div>
+          <div class="current-text">
+            <h2 class="current-title" data-i18n="current.title">
+              MEZZOTINT<span class="hero-semicolon">;</span> refleksjoner
+            </h2>
+            <div class="current-artist" data-i18n="current.artist">Erling Valtyrson</div>
+            <div class="current-dates" data-i18n="current.dates">
+              30 May – 5 July 2026
+            </div>
+            <p class="current-body" data-i18n="current.body">
+              The opening exhibition at CRAFT presents Erling Valtyrson's intricate mezzotints —
+              a printmaking technique known for its deep tonal range and meticulous, hand-burnished
+              surfaces. The works invite quiet, sustained looking; still lifes and interiors composed
+              from objects that hover between the everyday and the symbolic.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANNUAL PROGRAMME -->
+      <section class="container programme">
+        <div class="section-label" data-i18n="programme.label">Annual Programme 2026</div>
+        <div class="programme-grid" id="programme-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-inner">
+        <div class="footer-block">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <p>
+            <span data-i18n="footer.email">E-mail</span>:
+            <a href="mailto:art.landscape.planning@gmail.com">
+              art.landscape.planning@gmail.com
+            </a><br />
+            <span data-i18n="footer.tel">Tel</span>: +47 911 90 405<br />
+            <span data-i18n="footer.address">Visiting address</span>:<br />
+            Baksidevegen 13<br />
+            2640 Vinstra, Norway
+          </p>
+        </div>
+
+        <div class="footer-block">
+          <h4 data-i18n="footer.staff">Staff</h4>
+          <p>
+            <span data-i18n="footer.role.intendant">Owner and Intendant</span><br />
+            Patrick Huse<br /><br />
+            <span data-i18n="footer.role.admin">Administrative partner</span><br />
+            Solveig M. Huse<br /><br />
+            <span data-i18n="footer.role.coop">Gallery cooperative & technical assistance</span><br />
+            Nina Standerholen
+          </p>
+        </div>
+
+        <div class="footer-block">
+          <h4 data-i18n="footer.partners">Partners</h4>
+          <p>
+            PHS — Patrick Huse Studio<br />
+            SAR — Skåbu Artist Residence<br />
+            Delta Press Norway<br />
+            <span data-i18n="footer.partner.municipality">Nord-Fron Municipality</span><br />
+            <span data-i18n="footer.partner.county">Innlandet County Municipality</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button
+      class="fab"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="primary-nav"
+      aria-expanded="false"
+    >
+      <span class="fab-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
