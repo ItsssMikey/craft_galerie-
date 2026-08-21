@@ -43,8 +43,8 @@ const PROGRAMME_2026 = [
       "Morten Løberg (NO)"
     ],
     dates: {
-      en: "12 – 27 September 2026",
-      no: "12. – 27. september 2026"
+      en: "26 September – 18 October 2026",
+      no: "26. september – 18. oktober 2026"
     },
     type: "group"
   },
@@ -53,8 +53,8 @@ const PROGRAMME_2026 = [
     artist: "Patrick Huse",
     medium: { en: "Drawing / Woodcut", no: "Tegning / Tresnitt" },
     dates: {
-      en: "14 November – 6 December 2026",
-      no: "14. november – 6. desember 2026"
+      en: "28 November – 13 December 2026",
+      no: "28. november – 13. desember 2026"
     },
     type: "solo"
   }
