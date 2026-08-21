@@ -637,7 +637,10 @@ img { max-width: 100%; height: auto; display: block; }
   }
 
   .fab { display: block; }
-  body { padding-bottom: 96px; }
+
+  .site-footer {
+    padding-bottom: 120px;
+  }
 
   .footer-inner {
     grid-template-columns: 1fr;
