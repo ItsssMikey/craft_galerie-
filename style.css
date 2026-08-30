@@ -43,7 +43,6 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--muted);
   margin-bottom: 24px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
 }
 
 /* =====================
