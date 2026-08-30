@@ -35,7 +35,6 @@ const PROGRAMME_2026 = [
       "Erik Wøllo (NO)",
       "Elisabeth Østensvik (NO)",
       "Sveinung Nygaard (NO)",
-      "Kjetil Teigen (NO)",
       "Ann Kristin Aas (NO)",
       "Lilla von Puttkamer (DE)",
       "Albrecht Fersch (DE)",
