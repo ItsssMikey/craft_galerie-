@@ -1,4 +1,30 @@
 /* =====================
+   VISIT / OPENING HOURS
+===================== */
+const VISIT_INFO = {
+  exhibition: {
+    en: "Residence 2026",
+    no: "Residence 2026"
+  },
+  slots: {
+    en: [
+      { label: "Saturday 26 September", time: "14:00 – 18:00" },
+      { label: "Sunday 27 September", time: "13:00 – 17:00" },
+      { label: "Thursday 1 – Sunday 4 October", time: "12:00 – 17:00" },
+      { label: "Thursday 8 – Sunday 11 October", time: "12:00 – 17:00" },
+      { label: "Thursday 15 – Sunday 18 October", time: "12:00 – 17:00" }
+    ],
+    no: [
+      { label: "lørdag 26. september", time: "14:00 – 18:00" },
+      { label: "søndag 27. september", time: "13:00 – 17:00" },
+      { label: "torsdag 1 – søndag 4. oktober", time: "12:00 – 17:00" },
+      { label: "torsdag 8 – søndag 11. oktober", time: "12:00 – 17:00" },
+      { label: "torsdag 15 – søndag 18. oktober", time: "12:00 – 17:00" }
+    ]
+  }
+};
+
+/* =====================
    ANNUAL PROGRAMME 2026 DATA
 ===================== */
 const PROGRAMME_2026 = [
@@ -45,32 +71,7 @@ const PROGRAMME_2026 = [
       en: "26 September – 18 October 2026",
       no: "26. september – 18. oktober 2026"
     },
-    openingHours: {
-      en: {
-        heading: "Opening hours",
-        slots: [
-          { label: "Saturday 26 September", time: "14:00 – 18:00" },
-          { label: "Sunday 27 September", time: "13:00 – 17:00" },
-          { label: "Thursday 1 – Sunday 4 October", time: "12:00 – 17:00" },
-          { label: "Thursday 8 – Sunday 11 October", time: "12:00 – 17:00" },
-          { label: "Thursday 15 – Sunday 18 October", time: "12:00 – 17:00" }
-        ],
-        venue: "CRAFT; Gallery for Contemporary Art · Baksidevegen 13, 2640 Vinstra (NO)",
-        contact: "Mobile: +47 911 90 405 · Email: art.landscape.planning@gmail.com"
-      },
-      no: {
-        heading: "Åpningstider",
-        slots: [
-          { label: "lørdag 26. september", time: "14:00 – 18:00" },
-          { label: "søndag 27. september", time: "13:00 – 17:00" },
-          { label: "torsdag 1 – søndag 4. oktober", time: "12:00 – 17:00" },
-          { label: "torsdag 8 – søndag 11. oktober", time: "12:00 – 17:00" },
-          { label: "torsdag 15 – søndag 18. oktober", time: "12:00 – 17:00" }
-        ],
-        venue: "CRAFT; galleri for samtidskunst · Baksidevegen 13, 2640 Vinstra (NO)",
-        contact: "Mob.: +47 911 90 405 · E-post: art.landscape.planning@gmail.com"
-      }
-    },
+    visitHours: true,
     type: "group"
   },
   {
@@ -95,6 +96,7 @@ const TRANSLATIONS = {
     "nav.visuals": "Visuals",
     "nav.about": "About",
     "nav.team": "Team",
+    "nav.visit": "Visit",
     "nav.contact": "Contact",
 
     "hero.title": "CRAFT<span class=\"hero-semicolon\">;</span> Gallery for Contemporary Art",
@@ -108,6 +110,15 @@ const TRANSLATIONS = {
     "current.body": "The opening exhibition at CRAFT presents Erling Valtyrson's intricate mezzotints — a printmaking technique known for its deep tonal range and meticulous, hand-burnished surfaces. The works invite quiet, sustained looking; still lifes and interiors composed from objects that hover between the everyday and the symbolic.",
 
     "programme.label": "Annual Programme 2026",
+
+    "visit.label": "Visit us",
+    "visit.name": "CRAFT; Gallery for Contemporary Art",
+    "visit.hoursTitle": "Opening hours",
+    "visit.hoursFor": "Residence 2026",
+    "visit.note": "The gallery is open during exhibition periods. Current opening times:",
+    "visit.hoursLink": "Opening hours",
+    "visit.addressLine1": "Baksidevegen 13",
+    "visit.addressLine2": "2640 Vinstra, Norway",
 
     "footer.contact": "Contact",
     "footer.email": "E-mail",
@@ -146,6 +157,7 @@ const TRANSLATIONS = {
     "nav.visuals": "Bilder",
     "nav.about": "Om",
     "nav.team": "Medarbeidere",
+    "nav.visit": "Besøk",
     "nav.contact": "Kontakt",
 
     "hero.title": "CRAFT<span class=\"hero-semicolon\">;</span> Galleri for samtidskunst",
@@ -159,6 +171,15 @@ const TRANSLATIONS = {
     "current.body": "Åpningsutstillingen på CRAFT presenterer Erling Valtyrsons forfinede mezzotinter — en grafisk teknikk kjent for sitt dype tonale register og sine omhyggelig håndarbeidede flater. Verkene innbyr til langsom og vedvarende betraktning; stilleben og interiører satt sammen av gjenstander som beveger seg mellom det dagligdagse og det symbolske.",
 
     "programme.label": "Årsprogram 2026",
+
+    "visit.label": "Besøk oss",
+    "visit.name": "CRAFT; galleri for samtidskunst",
+    "visit.hoursTitle": "Åpningstider",
+    "visit.hoursFor": "Residence 2026",
+    "visit.note": "Galleriet har åpent i utstillingsperioder. Gjeldende åpningstider:",
+    "visit.hoursLink": "Se åpningstider",
+    "visit.addressLine1": "Baksidevegen 13",
+    "visit.addressLine2": "2640 Vinstra, Norge",
 
     "footer.contact": "Kontakt",
     "footer.email": "E-post",
@@ -230,6 +251,8 @@ function applyTranslations(lang) {
   if (document.getElementById("programme-grid")) {
     renderProgramme(lang);
   }
+
+  renderVisitSection(lang);
 }
 
 function initLangSwitch() {
@@ -253,7 +276,6 @@ function renderProgramme(lang) {
   PROGRAMME_2026.forEach((exh) => {
     const card = document.createElement("article");
     card.className = "exh-card";
-    if (exh.openingHours) card.classList.add("exh-card--wide");
 
     let html = `<div class="exh-card-dates">${exh.dates[lang]}</div>`;
     html += `<h3 class="exh-card-title">${exh.title}</h3>`;
@@ -274,25 +296,33 @@ function renderProgramme(lang) {
       html += `<div class="exh-card-artists-list">${list}</div>`;
     }
 
-    if (exh.openingHours) {
-      const hours = exh.openingHours[lang];
-      const slots = hours.slots
-        .map(
-          (slot) =>
-            `<div class="exh-card-hours-row"><span>${slot.label}</span><span>${slot.time}</span></div>`
-        )
-        .join("");
-      html += `<div class="exh-card-hours">
-        <div class="exh-card-hours-title">${hours.heading}</div>
-        ${slots}
-        <div class="exh-card-hours-meta">${hours.venue}</div>
-        <div class="exh-card-hours-meta">${hours.contact}</div>
-      </div>`;
+    if (exh.visitHours) {
+      const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+      const hoursHref = document.getElementById("visit-hours-slots") ? "#visit" : "index.html#visit";
+      html += `<a class="exh-card-visit-link" href="${hoursHref}">${dict["visit.hoursLink"]} →</a>`;
     }
 
     card.innerHTML = html;
     grid.appendChild(card);
   });
+}
+
+function renderVisitSection(lang) {
+  const slotsEl = document.getElementById("visit-hours-slots");
+  if (!slotsEl) return;
+
+  const slots = VISIT_INFO.slots[lang] || VISIT_INFO.slots.en;
+  slotsEl.innerHTML = slots
+    .map(
+      (slot) =>
+        `<div class="visit-hours-row"><span>${slot.label}</span><span>${slot.time}</span></div>`
+    )
+    .join("");
+
+  const exhibitionEl = document.getElementById("visit-hours-exhibition");
+  if (exhibitionEl) {
+    exhibitionEl.textContent = VISIT_INFO.exhibition[lang] || VISIT_INFO.exhibition.en;
+  }
 }
 
 /* =====================

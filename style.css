@@ -333,43 +333,12 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 10px;
 }
 
-.exh-card--wide {
-  grid-column: span 12;
-}
-
-.exh-card-hours {
-  margin-top: 8px;
+.exh-card-visit-link {
+  margin-top: 4px;
   font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-.exh-card-hours-title {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.exh-card-hours-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px;
-  padding: 4px 0;
-}
-
-.exh-card-hours-row span:last-child {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.exh-card-hours-meta {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.8rem;
+  text-decoration: underline;
+  color: var(--text);
+  width: fit-content;
 }
 
 .exh-card-dates {
@@ -410,6 +379,74 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 720px) {
   .exh-card { grid-column: span 12; }
   .exh-card-artists-list { columns: 1; }
+}
+
+/* =====================
+   VISIT
+===================== */
+.visit {
+  padding-top: 20px;
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.visit-name {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.visit-address,
+.visit-contact {
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.visit-contact a {
+  text-decoration: underline;
+}
+
+.visit-hours-heading {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.visit-hours-note {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.visit-hours-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.visit-hours-row span:last-child {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .visit-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
 
 /* =====================

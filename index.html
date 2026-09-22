@@ -5,6 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRAFT — Galleri for samtidskunst</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ArtGallery",
+        "name": "CRAFT; Gallery for Contemporary Art",
+        "alternateName": "CRAFT; galleri for samtidskunst",
+        "url": "https://craft-galerie.vercel.app/",
+        "telephone": "+47-911-90-405",
+        "email": "art.landscape.planning@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Baksidevegen 13",
+          "addressLocality": "Vinstra",
+          "postalCode": "2640",
+          "addressCountry": "NO"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "validFrom": "2026-09-26",
+            "validThrough": "2026-09-26",
+            "opens": "14:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "validFrom": "2026-09-27",
+            "validThrough": "2026-09-27",
+            "opens": "13:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "validFrom": "2026-10-01",
+            "validThrough": "2026-10-04",
+            "opens": "12:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "validFrom": "2026-10-08",
+            "validThrough": "2026-10-11",
+            "opens": "12:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "validFrom": "2026-10-15",
+            "validThrough": "2026-10-18",
+            "opens": "12:00",
+            "closes": "17:00"
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
@@ -20,6 +75,7 @@
           <a href="visuals.html" data-i18n="nav.visuals">Visuals</a>
           <a href="about.html" data-i18n="nav.about">About</a>
           <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="#visit" data-i18n="nav.visit">Visit</a>
           <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
 
@@ -78,6 +134,33 @@
       <section class="container programme">
         <div class="section-label" data-i18n="programme.label">Annual Programme 2026</div>
         <div class="programme-grid" id="programme-grid"></div>
+      </section>
+
+      <section class="container visit" id="visit">
+        <div class="section-label" data-i18n="visit.label">Visit us</div>
+        <div class="visit-grid">
+          <div class="visit-info">
+            <h2 class="visit-name" data-i18n="visit.name">CRAFT; Gallery for Contemporary Art</h2>
+            <p class="visit-address">
+              <span data-i18n="visit.addressLine1">Baksidevegen 13</span><br />
+              <span data-i18n="visit.addressLine2">2640 Vinstra, Norway</span>
+            </p>
+            <p class="visit-contact">
+              <a href="tel:+4791190405">+47 911 90 405</a><br />
+              <a href="mailto:art.landscape.planning@gmail.com">art.landscape.planning@gmail.com</a>
+            </p>
+          </div>
+          <div class="visit-hours">
+            <h3 class="visit-hours-heading">
+              <span data-i18n="visit.hoursTitle">Opening hours</span>
+              · <span id="visit-hours-exhibition">Residence 2026</span>
+            </h3>
+            <p class="visit-hours-note" data-i18n="visit.note">
+              The gallery is open during exhibition periods. Current opening times:
+            </p>
+            <div class="visit-hours-slots" id="visit-hours-slots"></div>
+          </div>
+        </div>
       </section>
     </main>
 
