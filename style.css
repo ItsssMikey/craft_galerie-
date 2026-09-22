@@ -55,12 +55,6 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: 50;
 }
 
-@media (min-width: 681px) {
-  .site-header {
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
-  }
-}
-
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -337,6 +331,45 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.exh-card--wide {
+  grid-column: span 12;
+}
+
+.exh-card-hours {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.exh-card-hours-title {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.exh-card-hours-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  padding: 4px 0;
+}
+
+.exh-card-hours-row span:last-child {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.exh-card-hours-meta {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.8rem;
 }
 
 .exh-card-dates {

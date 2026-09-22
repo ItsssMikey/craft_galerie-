@@ -45,6 +45,32 @@ const PROGRAMME_2026 = [
       en: "26 September – 18 October 2026",
       no: "26. september – 18. oktober 2026"
     },
+    openingHours: {
+      en: {
+        heading: "Opening hours",
+        slots: [
+          { label: "Saturday 26 September", time: "14:00 – 18:00" },
+          { label: "Sunday 27 September", time: "13:00 – 17:00" },
+          { label: "Thursday 1 – Sunday 4 October", time: "12:00 – 17:00" },
+          { label: "Thursday 8 – Sunday 11 October", time: "12:00 – 17:00" },
+          { label: "Thursday 15 – Sunday 18 October", time: "12:00 – 17:00" }
+        ],
+        venue: "CRAFT; Gallery for Contemporary Art · Baksidevegen 13, 2640 Vinstra (NO)",
+        contact: "Mobile: +47 911 90 405 · Email: art.landscape.planning@gmail.com"
+      },
+      no: {
+        heading: "Åpningstider",
+        slots: [
+          { label: "lørdag 26. september", time: "14:00 – 18:00" },
+          { label: "søndag 27. september", time: "13:00 – 17:00" },
+          { label: "torsdag 1 – søndag 4. oktober", time: "12:00 – 17:00" },
+          { label: "torsdag 8 – søndag 11. oktober", time: "12:00 – 17:00" },
+          { label: "torsdag 15 – søndag 18. oktober", time: "12:00 – 17:00" }
+        ],
+        venue: "CRAFT; galleri for samtidskunst · Baksidevegen 13, 2640 Vinstra (NO)",
+        contact: "Mob.: +47 911 90 405 · E-post: art.landscape.planning@gmail.com"
+      }
+    },
     type: "group"
   },
   {
@@ -227,6 +253,7 @@ function renderProgramme(lang) {
   PROGRAMME_2026.forEach((exh) => {
     const card = document.createElement("article");
     card.className = "exh-card";
+    if (exh.openingHours) card.classList.add("exh-card--wide");
 
     let html = `<div class="exh-card-dates">${exh.dates[lang]}</div>`;
     html += `<h3 class="exh-card-title">${exh.title}</h3>`;
@@ -245,6 +272,22 @@ function renderProgramme(lang) {
       }
       const list = exh.artistsList.map((n) => `<div>${n}</div>`).join("");
       html += `<div class="exh-card-artists-list">${list}</div>`;
+    }
+
+    if (exh.openingHours) {
+      const hours = exh.openingHours[lang];
+      const slots = hours.slots
+        .map(
+          (slot) =>
+            `<div class="exh-card-hours-row"><span>${slot.label}</span><span>${slot.time}</span></div>`
+        )
+        .join("");
+      html += `<div class="exh-card-hours">
+        <div class="exh-card-hours-title">${hours.heading}</div>
+        ${slots}
+        <div class="exh-card-hours-meta">${hours.venue}</div>
+        <div class="exh-card-hours-meta">${hours.contact}</div>
+      </div>`;
     }
 
     card.innerHTML = html;
